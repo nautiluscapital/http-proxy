@@ -1,6 +1,7 @@
 FROM alpine
 MAINTAINER comphilip@msn.com
-RUN apk add --no-cache squid
-ADD ./squid.conf /etc/squid/squid.conf
+RUN echo '@testing http://nl.alpinelinux.org/alpine/edge/testing' >> /etc/apk/repositories \
+    && apk add --no-cache 3proxy@testing \
+    && echo 'proxy' > /etc/3proxy/config
 EXPOSE 3128
-CMD squid
+CMD 3proxy /etc/3proxy/config
