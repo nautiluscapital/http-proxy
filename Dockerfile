@@ -7,4 +7,4 @@ RUN echo '@testing http://nl.alpinelinux.org/alpine/edge/testing' >> /etc/apk/re
     && echo 'allow *' >> /etc/3proxy/config \
     && echo 'proxy' >> /etc/3proxy/config \
 EXPOSE 3128
-CMD ["/usr/bin/3proxy", "/etc/3proxy/config"]
+CMD 3proxy /etc/3proxy/config
